@@ -27,6 +27,6 @@ int main()
     for(i=0;i<7;i++)
     {
         printf("%d\t",arr3[i]);
-}
+     }
 
 }
