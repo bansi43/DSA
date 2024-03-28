@@ -8,7 +8,7 @@ struct node {
 
 struct node *head = NULL;
 
-void insertEnd(int val) {
+void insertfirst(int val) {
     
    struct node *ptr=head;
    struct node *temp=malloc(sizeof (struct node));
@@ -20,12 +20,13 @@ void insertEnd(int val) {
      head=temp;
      return;
    }
-   while(ptr->next!=NULL)
-   {
-    ptr=ptr->next;
-   }
-   ptr->next=temp;
-   return;
+  else
+  {
+    temp->next=head;
+    head=temp;
+     return;
+  }
+  
 
 }
 void display()
@@ -45,18 +46,34 @@ void display()
     }
     printf("\n");
 }
+void deletefirst()
+{
 
+    struct node *ptr=head;
+    struct node *p;
+    if(head==NULL)
+    {
+        printf("list is empty.....");
+    }
+    else 
+    {
+      head=head->next;
+      free(ptr);
+      return;
+    }
+    
+}
 int main()
 {
-    insertEnd(100);
-    insertEnd(200);
-    insertEnd(300);
-    insertEnd(400);
-    insertEnd(500);
-    insertEnd(600);
-    insertEnd(700);
-    insertEnd(800);
+    insertfirst(100);
+    insertfirst(200);
+    insertfirst(300);
     display();
+    deletefirst();
+    display();
+    deletefirst();
+    display();
+   
    
 }  
 

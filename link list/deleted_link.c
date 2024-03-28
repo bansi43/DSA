@@ -45,7 +45,30 @@ void display()
     }
     printf("\n");
 }
+void deleteEnd()
+{
 
+    struct node *ptr=head;
+    struct node *p;
+    if(head==NULL)
+    {
+        printf("list is empty.....");
+    }
+    else if(head->next == NULL)
+    {
+      head==NULL;
+      free(ptr);
+      return;
+    }
+    while (ptr->next!=NULL)
+    {
+        p=ptr;
+        ptr=ptr->next;
+    }
+    p->next=NULL;
+    free(ptr);
+    return;
+}
 int main()
 {
     insertEnd(100);
@@ -57,7 +80,8 @@ int main()
     insertEnd(700);
     insertEnd(800);
     display();
-   
+    deleteEnd();
+    display();
 }  
 
 
